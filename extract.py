@@ -17,7 +17,7 @@ apis = {
 
 def fetch_data(url, timeout=30):
     try:
-        response = requests.get(url, timeout=30)  # explicit timeout (30-60 seconds)
+        response = requests.get(url, timeout=30)
         response.raise_for_status()
         return pd.DataFrame(response.json())
     except requests.exceptions.RequestException as e:
