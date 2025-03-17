@@ -16,6 +16,22 @@ apis = {
 
 
 def fetch_data(url, timeout=30):
+    """
+    Fetches data from a given URL and returns it as a pandas DataFrame.
+
+    Parameters
+    ----------
+    url : str
+        The URL to fetch data from.
+    timeout : int, optional
+        The maximum time to wait for a response, in seconds (default is 30).
+
+    Returns
+    -------
+    pandas.DataFrame
+        A DataFrame containing the fetched data. Returns an empty DataFrame if the request fails.
+    """
+
     try:
         response = requests.get(url, timeout=30)
         response.raise_for_status()
@@ -26,6 +42,18 @@ def fetch_data(url, timeout=30):
 
 
 def extract_all():
+    """
+    Fetches data from all APIs and returns a dictionary of DataFrames.
+
+    The keys of the dictionary are the names of the APIs, and the values are the
+    corresponding DataFrames. If any API request fails, the DataFrame for that
+    API will be empty, and a warning will be printed.
+
+    Returns
+    -------
+    dict
+        A dictionary of DataFrames containing the fetched data.
+    """
     data = {}
     for name, url in apis.items():
         df = fetch_data(url)
