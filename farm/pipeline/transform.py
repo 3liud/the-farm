@@ -53,7 +53,7 @@ def transform_all(data_dict):
 
 
 if __name__ == "__main__":
-    from extract import extract_all
+    from farm.pipeline.extract import extract_all
 
     data_dict = extract_all()
     cleaned_data = transform_all(data_dict)

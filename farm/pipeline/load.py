@@ -28,8 +28,8 @@ def load_to_postgres(df, table_name):
 
 
 if __name__ == "__main__":
-    from extract import extract_all
-    from transform import transform_all
+    from farm.pipeline.extract import extract_all
+    from farm.pipeline.transform import transform_all
 
     data_dict = extract_all()
     cleaned_data = transform_all(data_dict)

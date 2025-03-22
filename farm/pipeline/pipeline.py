@@ -1,8 +1,8 @@
 from dagster import Definitions, ScheduleDefinition, asset, define_asset_job
 
-from extract import extract_all
-from load import load_to_postgres
-from transform import transform_all
+from farm.pipeline.extract import extract_all
+from farm.pipeline.load import load_to_postgres
+from farm.pipeline.transform import transform_all
 
 
 # Define assets
